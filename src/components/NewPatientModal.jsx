@@ -114,7 +114,8 @@ const NewPatientModal = ({ isOpen, onClose }) => {
 
           {createPatientMutation.isError && (
             <div className="bg-[var(--status-error-bg)] border border-[var(--status-error-border)] text-[var(--status-error-text)] p-3 rounded-lg text-sm text-center animate-fadeIn">
-              حدث خطأ أثناء تسجيل المريض. يرجى المحاولة مرة أخرى.
+              <p className="font-bold mb-1">فشل تسجيل المريض</p>
+              <p>{createPatientMutation.error?.customMessage || 'حدث خطأ، يرجى المحاولة مرة أخرى.'}</p>
             </div>
           )}
 

@@ -312,6 +312,12 @@ const AppointmentModal = ({ isOpen, onClose, onTicketReady }) => {
           {/* Step 4: Select Time */}
           {step === 4 && (
             <div className="animate-slideUp">
+              {bookMutation.isError && (
+                <div className="mb-4 bg-[var(--status-error-bg)] border border-[var(--status-error-border)] text-[var(--status-error-text)] p-3 rounded-lg text-sm text-center animate-fadeIn">
+                  <p className="font-bold mb-1">فشل تسجيل الموعد</p>
+                  <p>{bookMutation.error?.customMessage || 'حدث خطأ، يرجى المحاولة مرة أخرى.'}</p>
+                </div>
+              )}
               <h3 className="text-sm font-bold text-[var(--text-primary)] mb-1">اختر الوقت</h3>
               <p className="text-xs text-[var(--text-tertiary)] mb-4">
                 {selectedDate?.toLocaleDateString('ar-EG', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
